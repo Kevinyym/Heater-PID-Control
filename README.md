@@ -50,6 +50,7 @@ float PID(float Rps, float Target)
 ## 4 接线框图
 - [ ] 电机驱动TB6612(确认加热片的额定DC和功率，已有的TB6612是否能用？)
 - [ ] 加热棒（额定电压DC 24V, 额定功率65W。为了简化电路，直接从ST-Link取电5V。验证电流：R=U^2/P=24^2/65=8.86 ohm，那么在5V下 I=U/R=5/8.86=0.8A，小于电机驱动的额定1.2A)
+- [ ] 热敏电阻（规格？？？）
 
 ![截屏2023-05-25 下午9 26 11](https://github.com/Kevinyym/DC-Motor-PID-Control/assets/101639215/70501e9c-0ded-49f7-b84e-91fe3f6ec45b)
 
