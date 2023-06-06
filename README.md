@@ -53,5 +53,6 @@ float PID(float Rps, float Target)
 - [ ] 热敏电阻（规格？？？）
 
 ![截屏2023-05-25 下午9 26 11](https://github.com/Kevinyym/DC-Motor-PID-Control/assets/101639215/70501e9c-0ded-49f7-b84e-91fe3f6ec45b)
+- [ ] 此处电容可以不接
+- [ ] ![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/33b318a5-9fe2-4084-ae33-6b1ef5e0fe64)
 
-![截屏2023-05-25 下午9 29 18](https://github.com/Kevinyym/DC-Motor-PID-Control/assets/101639215/1a99db1c-61d8-4b7c-859d-89d0d5e69765)
