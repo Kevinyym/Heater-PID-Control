@@ -52,7 +52,7 @@ float PID(float Rps, float Target)
 - [ ] 加热棒（额定电压DC 24V, 额定功率65W。为了简化电路，直接从ST-Link取电5V。验证电流：R=U^2/P=24^2/65=8.86 ohm，那么在5V下 I=U/R=5/8.86=0.8A，小于电机驱动的额定1.2A)
 - [ ] 热敏电阻（规格？？？）
 
-![截屏2023-05-25 下午9 26 11](https://github.com/Kevinyym/DC-Motor-PID-Control/assets/101639215/70501e9c-0ded-49f7-b84e-91fe3f6ec45b)
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/5c6804c8-7df8-4b05-86c6-cd1f336e669f)
 - [ ] 此处电容可以不接
 - [ ] ![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/33b318a5-9fe2-4084-ae33-6b1ef5e0fe64)
 
