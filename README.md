@@ -18,11 +18,13 @@
 - [ ] 待完成功能：Kp, Ki, Kd参数通过串口输入，而不用每次更改都编译和下载一遍
 
 ### 2.4 PID控制温度
-- [ ] 简单粗暴的控制方式，不能让温度稳定在 xxx 度
+- [x] 简单粗暴的控制方式，不能让温度稳定在 xxx 度
 ```
 if (Temp > 41) Speed--;
 if (Temp < 39) Speed++;
 ```
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/7928d202-5f1e-40e4-b9ec-d76c2066727d)
+
 - [ ] 热敏电阻PID控制加热片温度
 ```
 float Err=0, LastErr=0, NextErr=0, Add=0, Kp=20, Ki=0.5, Kd=0, POut=0, IOut=0, DOut;
