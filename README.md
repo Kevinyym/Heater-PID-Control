@@ -5,7 +5,7 @@
 
 ## 2 步骤
 ### 2.1 实现加热片的PWM控制（参考江科协代码）
-- [ ] 加热片(电机)的PWM驱动函数能输入PWM的值作为参数(在PID控制的实例中，实际用不到按键)
+- [x] 加热棒(电机)的PWM驱动函数能输入PWM的值作为参数(在PID控制的实例中，实际用不到按键)
 
 ### 2.2 实现DMA+AD转换功能来进行测温（参考江科协代码）
 - [x] 电位计DMA+AD转换驱动函数，通过电压转换能计算出热敏电阻的温度值。
@@ -23,31 +23,39 @@
 if (Temp > 41) Speed--;
 if (Temp < 39) Speed++;
 ```
-![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/7928d202-5f1e-40e4-b9ec-d76c2066727d)
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/d334016d-43eb-46fe-8963-eefc913e0f4d)
 
-- [ ] 热敏电阻PID控制加热片温度
+- [x] 热敏电阻PID控制加热片温度
 ```
-float Err=0, LastErr=0, NextErr=0, Add=0, Kp=20, Ki=0.5, Kd=0, POut=0, IOut=0, DOut;
+float Err=0, LastErr=0, NextErr=0, Add=0, Kp=10, Ki=0.6, Kd=0.05, POut=0, IOut=0, DOut;
 int8_t TotalOut=0;
 
+/**
+  * @brief  PID控制温度
+  * @param  Rps: 将当前的目标值传入函数
+  * @param  Target: 将当前的测量值传入函数
+  * @retval 返回执行量
+  */
 float PID(float Rps, float Target)
 {
 	Err = Target - Rps; //计算实际值与目标值的偏差值
 	POut = Kp * Err; //计算PID的比例值P的输出值
-	IOut += Ki * Err; //计算PID的比例值I的输出值
-	DOut = Err - LastErr;
-	TotalOut = (int8_t)(POut + IOut + DOut);
+	IOut += Ki * Err; //计算PID的积分值I的输出值
+	DOut = Err - LastErr; //计算PID的微分值D的输出值
+	TotalOut = (int8_t)(POut + IOut + DOut); //PID值的和
 	LastErr = Err;
 	return TotalOut;
 }
 ```
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/5ffb76e7-1444-4fa3-ac33-8ee9707dbb5d)
+
 ## 3 定时器表资源表：STM32F103C8T6定时器资源：TIM1,TIM2,TIM3,TIM4
 ```	
 	*功能*	  *定时器*	 *类型*
 	闲置	   TIM1	   高级定时器
 	PWM	    TIM2    通用定时器	
-	Encoder	    TIM3    通用定时器	
-	Timer	    TIM4    通用定时器	
+	(Encoder)   TIM3    通用定时器	
+	(Timer)	    TIM4    通用定时器	
 ```
 ## 4 接线框图
 - [ ] 电机驱动TB6612(确认加热片的额定DC和功率，已有的TB6612是否能用？)
