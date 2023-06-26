@@ -19,6 +19,8 @@ Heater_SetDutyCycle(Duty);
 DutyCycle=20
 ![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/5b14f8a0-a073-415b-b98d-7805b68e2fea)
 
+DutyCycle=50, 100, 确认温度极限
+
 ### 2.2 实现DMA+AD转换功能来进行测温（参考江科协代码）
 - [x] 电位计DMA+AD转换驱动函数，通过电压转换能计算出热敏电阻的温度值。
 - [x] 热敏电阻的计算公式：T=f(Voltage, Belta)
