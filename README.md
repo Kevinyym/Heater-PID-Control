@@ -6,6 +6,18 @@
 ## 2 步骤
 ### 2.1 实现加热片的PWM控制（参考江科协代码）
 - [x] 加热棒(电机)的PWM驱动函数能输入PWM的值作为参数(在PID控制的实例中，实际用不到按键)
+```
+Duty = 5;	
+Heater_SetDutyCycle(Duty);
+```
+在固定的DutyCycle=5的情况下，温度波动很大
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/e71c1803-356e-4b28-bf81-df0d8f8b34d6)
+
+在增加104电容后，温度基本稳定
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/96442e4e-d27a-4093-87d0-c0750630cef2)
+
+DutyCycle=20
+![image](https://github.com/Kevinyym/Heater-PID-Control/assets/101639215/5b14f8a0-a073-415b-b98d-7805b68e2fea)
 
 ### 2.2 实现DMA+AD转换功能来进行测温（参考江科协代码）
 - [x] 电位计DMA+AD转换驱动函数，通过电压转换能计算出热敏电阻的温度值。
